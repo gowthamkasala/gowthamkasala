@@ -1,0 +1,9 @@
+node_modules/
+.next/
+out/
+.context/
+*.tsbuildinfo
+.env*
+!.env.example
+.ve/settings.local.toml
+.vercel/

@@ -21,3 +21,21 @@ I build production-ready systems end to end — backend services, infrastructure
 - LinkedIn: [gowtham-kasala](https://linkedin.com/in/gowtham-kasala)
 -  X: [@gowthamkasala](https://x.com/gowthamkasala)
 -   GitHub: [@gowthamkasala](https://github.com/gowthamkasala)
+
+
+## Personal website
+
+The working website is implemented in this checkout with Next.js App Router, React and TypeScript. It was rebuilt directly from the supplied brief after the fleet integration failed; it does not import the inaccessible worker checkpoints.
+
+```sh
+npm ci
+npm run dev -- --hostname 127.0.0.1 --port 55000
+```
+
+Open http://127.0.0.1:55000. The Ve Run configuration uses the workspace’s allocated `VE_PORT` instead of a fixed port.
+
+Production checks: `npm run typecheck` and `npm run build`; serve a production build with `npm start`.
+
+Content lives in `src/data/projects.ts` and `src/data/research.ts`. Identity and links are configured in `src/data/site.ts`. Copy `.env.example` to `.env.local` to supply a real `SITE_URL` (public HTTPS origin), `CONTACT_EMAIL` or `RESUME_URL` (HTTPS URL or root-relative asset path). Missing settings produce no contact links or invented canonical/sitemap hosts. Fonts and their licenses are self-hosted in `public/fonts`.
+
+The research section distinguishes ongoing experiments from established work. No unpublished notes are presented as real articles.
