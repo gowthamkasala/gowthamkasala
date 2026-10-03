@@ -19,12 +19,16 @@ function resumeLink(value: string | undefined): string | undefined {
     return undefined;
   }
 }
+const deploymentOrigin = process.env.VERCEL_PROJECT_PRODUCTION_URL
+  ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+  : undefined;
+
 export const site = {
   name: "Gowtham",
   title: "Gowtham — Product Builder & AI Product Engineer",
   description:
     "Gowtham builds products and systems across product, engineering, AI, infrastructure, and operations.",
-  origin: publicOrigin(process.env.SITE_URL),
+  origin: publicOrigin(process.env.SITE_URL || deploymentOrigin),
   email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(process.env.CONTACT_EMAIL ?? "")
     ? process.env.CONTACT_EMAIL
     : undefined,

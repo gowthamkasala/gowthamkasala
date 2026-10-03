@@ -1,0 +1,9 @@
+.git/
+.context/
+.ve/
+.next/
+.vercel/
+node_modules/
+docs/
+.env*
+*.tsbuildinfo

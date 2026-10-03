@@ -39,3 +39,9 @@ Production checks: `npm run typecheck` and `npm run build`; serve a production b
 Content lives in `src/data/projects.ts` and `src/data/research.ts`. Identity and links are configured in `src/data/site.ts`. Copy `.env.example` to `.env.local` to supply a real `SITE_URL` (public HTTPS origin), `CONTACT_EMAIL` or `RESUME_URL` (HTTPS URL or root-relative asset path). Missing settings produce no contact links or invented canonical/sitemap hosts. Fonts and their licenses are self-hosted in `public/fonts`.
 
 The research section distinguishes ongoing experiments from established work. No unpublished notes are presented as real articles.
+
+### Vercel deployment
+
+This checkout links to `gowtham-personal-lab` in the `gowthams-projects-2e07a776` Vercel team. Deploy with `vercel --prod`. On Vercel, the site's canonical URL, sitemap and social metadata use the platform-provided `VERCEL_PROJECT_PRODUCTION_URL` when no custom `SITE_URL` is configured. Set `SITE_URL` explicitly when attaching another public domain.
+
+Local Vercel linkage and credentials are ignored by Git and excluded from deployment uploads. GitHub pushes use the current workspace branch; CLI production deployments do not merge that branch into `main`.
