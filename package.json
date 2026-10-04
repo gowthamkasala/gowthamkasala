@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test": "node scripts/verify-site.mjs",
+    "test:e2e": "playwright test",
+    "verify": "node scripts/verify-site.mjs"
   },
   "dependencies": {
     "next": "16.3.8",
@@ -14,9 +17,10 @@
     "react-dom": "19.3.0"
   },
   "devDependencies": {
-    "typescript": "7.0.2",
+    "@playwright/test": "^1.63.0",
     "@types/node": "^26.0.0",
     "@types/react": "^19.0.0",
-    "@types/react-dom": "^19.0.0"
+    "@types/react-dom": "^19.0.0",
+    "typescript": "7.0.2"
   }
 }

@@ -7,3 +7,5 @@ out/
 !.env.example
 .ve/settings.local.toml
 .vercel/
+playwright-report/
+test-results/

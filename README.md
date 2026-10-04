@@ -45,3 +45,7 @@ The research section distinguishes ongoing experiments from established work. No
 This checkout links to `gowtham-personal-lab` in the `gowthams-projects-2e07a776` Vercel team. Deploy with `vercel --prod`. On Vercel, the site's canonical URL, sitemap and social metadata use the platform-provided `VERCEL_PROJECT_PRODUCTION_URL` when no custom `SITE_URL` is configured. Set `SITE_URL` explicitly when attaching another public domain.
 
 Local Vercel linkage and credentials are ignored by Git and excluded from deployment uploads. GitHub pushes use the current workspace branch; CLI production deployments do not merge that branch into `main`.
+
+### Automated verification
+
+Run `npm test` for type checking, a production build and 36 Chromium checks across desktop, tablet and mobile. Use `QA_BASE_URL=https://gowthamkasala.com npm run verify` to check the live deployment. See `docs/verification.md` for coverage and reports.

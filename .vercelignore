@@ -7,3 +7,6 @@ node_modules/
 docs/
 .env*
 *.tsbuildinfo
+tests/
+playwright.config.ts
+scripts/verify-site.mjs

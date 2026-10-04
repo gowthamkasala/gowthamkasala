@@ -1,21 +1,32 @@
-# Local preview verification
+# Website verification
 
-The website in this checkout was rebuilt from the original supplied brief. Ve's retained fleet checkpoints could not be applied: the recovery actions returned an interrupted final part and no combined result. No hidden checkpoint was imported manually.
+The working website was rebuilt directly from the supplied brief after the original fleet handoff failed. Its late partial result reported nine completed assignments and one interrupted QA assignment, but contained zero changed paths. Applying that result wrote no files. Worker reports of isolated checks did not certify the assembled website.
 
-## Checks completed
+## Checks completed on 2026-10-04
 
-- `npm run typecheck` passed.
-- `npm run build` passed, producing the homepage, four static case-study routes, icon, robots, sitemap, and social-image route.
-- The production server returned HTTP 200 for all five pages and the crawl/image assets, and HTTP 404 for an unknown case-study slug.
-- Browser checks found no horizontal overflow on the homepage or any of the four case studies at 820px, 390px, and 320px.
-- Desktop and mobile production screenshots rendered without console warnings, errors, or failed requests.
-- System layer selection, method tabs with ArrowRight keyboard navigation, and native lab disclosures changed their visible state correctly.
-- Case-study navigation returned to the homepage's Work section correctly. A fresh production browser session reported no console warnings or errors during these interaction checks.
-- Without a configured `SITE_URL`, rendered pages omitted canonical, absolute social-image, and Open Graph URL metadata. No invented public origin was emitted.
-- Missing contact email and résumé values are not rendered as links. LinkedIn and GitHub use the URLs provided by the repository README.
+- TypeScript checking and the Next.js production build passed.
+- The automated Chromium suite passed all 36 checks against https://gowthamkasala.com: 12 cases each at desktop (1280px), tablet (820px), and mobile (390px).
+- Coverage includes navigation, eight system controls, seven keyboard-operated method tabs, five lab disclosures, four case-study routes, the expected unknown-route 404, metadata, contact links, reduced motion, and JavaScript-disabled reading paths.
+- Layout checks found no horizontal overflow in tested pages and interaction states. Unexpected browser errors fail the suite; the intentional missing-route 404 is narrowly excluded.
+- Earlier local checks covered 320px layouts and absent production/contact settings. Missing email and résumé settings produce no fabricated links.
+
+## Run the checks
+
+```sh
+npm ci
+npm test
+```
+
+`npm test` (also `npm run verify`) installs Chromium if needed, checks types, builds with optional site/contact settings unset, then starts an isolated production server and runs the browser suite. Build and browser concurrency are limited to reduce memory use.
+
+To check an existing deployment instead, use its primary origin:
+
+```sh
+QA_BASE_URL=https://gowthamkasala.com npm run verify
+```
+
+`npm run test:e2e` runs only the browser suite. `QA_PORT` selects the local production port. Reports, failure traces and screenshots are saved beneath `.context/qa/`; the HTML report is `.context/qa/report/index.html`.
 
 ## Limits
 
-This is a local preview, not a public deployment. No formal Lighthouse, WCAG audit, configured-domain deployment, or cross-browser suite was run. Reduced-motion CSS and JavaScript-disabled content fallbacks are implemented, but those modes were not separately exercised in the browser.
-
-The production preview is served at `http://127.0.0.1:55000` while its server process is running. The development command in the shared Ve settings uses the allocated workspace port.
+The suite exercises Chromium only. It is not a formal Lighthouse or WCAG audit, and does not certify every browser or viewport. The original fleet remains partial; these checks verify the independently recovered implementation.
