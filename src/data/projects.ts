@@ -47,7 +47,7 @@ export const projects: Project[] = [
       "Wedding-album production involved designers, a production manager, brand leads, and a data manager.",
     problem:
       "Different roles needed a shared operational workflow to coordinate production.",
-    role: "I worked on the internal operational system, bringing multi-role workflow design, user understanding, and product iteration to the production process.",
+    role: "I worked on the internal operational system and workflow design across the production roles.",
     outcome:
       "The system addressed a workflow involving about five designers and other production roles, with an overall user range of approximately 10–20 people.",
     flow: ["Data", "Design", "Coordination", "Production"],
