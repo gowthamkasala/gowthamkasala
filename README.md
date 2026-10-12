@@ -44,7 +44,9 @@ The research section distinguishes ongoing experiments from established work. No
 
 This checkout links to `gowtham-personal-lab` in the `gowthams-projects-2e07a776` Vercel team. Deploy with `vercel --prod`. On Vercel, the site's canonical URL, sitemap and social metadata use the platform-provided `VERCEL_PROJECT_PRODUCTION_URL` when no custom `SITE_URL` is configured. Set `SITE_URL` explicitly when attaching another public domain.
 
-Local Vercel linkage and credentials are ignored by Git and excluded from deployment uploads. GitHub pushes use the current workspace branch; CLI production deployments do not merge that branch into `main`.
+Local Vercel linkage and credentials are ignored by Git and excluded from deployment uploads.
+
+**Branches and deploys.** `main` is the public GitHub profile README and must stay profile-only. The site lives on `gowthamkasala/gowtham-personal-lab`, and production (https://gowthamkasala.com) is deployed by CLI from that branch: run `npm test`, then `vercel --prod`, then `QA_BASE_URL=https://gowthamkasala.com npm run test:e2e`. The Vercel project is deliberately not connected to GitHub: Vercel's production branch defaults to `main`, so a profile README edit there would otherwise deploy as production. To enable automatic deploys, first set Production → Branch Tracking to `gowthamkasala/gowtham-personal-lab` in the Vercel dashboard (Settings → Environments), then run `vercel git connect`.
 
 ### Automated verification
 

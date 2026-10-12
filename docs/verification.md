@@ -15,6 +15,7 @@ The working website was rebuilt directly from the supplied brief after the origi
 - `npm test` passes end to end: ESLint (`--max-warnings 0`), TypeScript, production build, and 60 Chromium checks (15 tests at 1280px, 820px, 390px and 320px).
 - The suite was rewritten for the redesign: hero trace, eight exclusive system layers, accumulating career layers, five operating-loop disclosures, two lab disclosures, four case dossiers (no evidence gallery without real artifacts), 404, truthful metadata and contact values, reduced motion, JavaScript-disabled reading paths, and an axe scan (WCAG 2.0/2.1 A and AA) of the home page and a case page.
 - The production run above predates the redesign and describes the earlier site.
+- Deployed to production from `8f818ff` and re-run against https://gowthamkasala.com: all 60 checks passed, including the canonical URL and `og:image` assertions that only apply to a live origin.
 
 ## Run the checks
 
