@@ -48,4 +48,4 @@ Local Vercel linkage and credentials are ignored by Git and excluded from deploy
 
 ### Automated verification
 
-Run `npm test` for type checking, a production build and 36 Chromium checks across desktop, tablet and mobile. Use `QA_BASE_URL=https://gowthamkasala.com npm run verify` to check the live deployment. See `docs/verification.md` for coverage and reports.
+Run `npm test` for linting, type checking, a production build and 60 Chromium checks (15 tests at desktop, tablet, 390px and 320px mobile), including an axe accessibility scan. Use `QA_BASE_URL=https://gowthamkasala.com npm run verify` to check the live deployment. See `docs/verification.md` for coverage and reports.
