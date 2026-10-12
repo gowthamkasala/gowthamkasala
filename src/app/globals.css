@@ -27,10 +27,10 @@
   src: url(/fonts/ibm-plex-mono-400.ttf) format("truetype");
 }
 :root {
-  --paper: #f6f5f0;
+  --paper: #f8f7f3;
   --surface: #eeeee7;
-  --ink: #1b2720;
-  --muted: #626c64;
+  --ink: #20211f;
+  --muted: #62635f;
   --line: #d4d8cf;
   --accent: #2458d5;
   --sans: "DM Sans", Arial, sans-serif;
@@ -1556,3 +1556,6 @@ ol {
 .method-loop noscript li, .system-explorer noscript li { margin-block: 24px; }
 .system-explorer noscript { padding: 24px; }
 @media (max-width: 760px) { .layer-mark { display: none; } }
+
+/* V2 page offsets account for the compact wrapping mobile navigation. */
+@media(max-width:700px){html{scroll-padding-top:115px}}

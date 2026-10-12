@@ -1,4 +1,6 @@
-import { defineConfig } from "@playwright/test";
+import { defineConfig, chromium } from "@playwright/test";
+import { existsSync } from "node:fs";
+const channel = process.env.QA_BROWSER_CHANNEL || (!existsSync(chromium.executablePath()) && existsSync("/Applications/Google Chrome.app") ? "chrome" : undefined);
 
 const port = Number(process.env.QA_PORT ?? (Number(process.env.VE_PORT ?? 3092) + 8));
 const external = process.env.QA_BASE_URL;
@@ -13,12 +15,14 @@ export default defineConfig({
   use: {
     baseURL: external ?? `http://127.0.0.1:${port}`,
     browserName: "chromium",
+    channel,
     trace: "retain-on-failure",
     screenshot: "only-on-failure",
   },
   projects: [
     { name: "desktop", use: { viewport: { width: 1280, height: 800 } } },
     { name: "tablet", use: { viewport: { width: 820, height: 1180 } } },
+    { name: "small-mobile", use: { viewport: { width: 320, height: 844 } } },
     { name: "mobile", use: { viewport: { width: 390, height: 844 } } },
   ],
   webServer: external ? undefined : {

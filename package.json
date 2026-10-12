@@ -9,7 +9,8 @@
     "typecheck": "tsc --noEmit",
     "test": "node scripts/verify-site.mjs",
     "test:e2e": "playwright test",
-    "verify": "node scripts/verify-site.mjs"
+    "verify": "node scripts/verify-site.mjs",
+    "lint": "eslint src --max-warnings 0"
   },
   "dependencies": {
     "next": "16.3.8",
@@ -17,10 +18,21 @@
     "react-dom": "19.3.0"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@babel/core": "^7.29.7",
+    "@babel/eslint-parser": "^7.29.9",
+    "@babel/plugin-syntax-jsx": "^7.29.7",
+    "@babel/plugin-syntax-typescript": "^7.29.7",
+    "@next/eslint-plugin-next": "^16.3.8",
     "@playwright/test": "^1.63.0",
     "@types/node": "^26.0.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
+    "eslint": "^9.39.5",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "lighthouse": "^13.5.0",
     "typescript": "7.0.2"
   }
 }
